@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MessMate - Order History</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec13",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102210",
+                        "card-light": "#ffffff",
+                        "card-dark": "#1a2e1a",
+                        "text-main": "#0d1b0d",
+                        "text-muted": "#4c9a4c",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.375rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+     
+        .custom-scrollbar::-webkit-scrollbar {
+            height: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #ccc;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-text-main dark:text-gray-100 font-display min-h-screen flex flex-col">
+
+<header class="sticky top-0 z-50 w-full border-b border-[#e7f3e7] dark:border-[#1f3a1f] bg-card-light dark:bg-card-dark px-4 py-3 lg:px-10">
+<div class="mx-auto flex max-w-[1280px] items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="flex items-center justify-center size-8 rounded bg-primary/20 text-primary dark:text-primary">
+    <span>
+    <img src="logo.png" alt="logo">
+</span>
+</div>
+<h2 class="text-xl font-bold tracking-tight text-text-main dark:text-white">MESSMATE</h2>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-medium hover:text-primary transition-colors text-text-main dark:text-gray-300" href="menu.html">Menu</a>
+<a class="text-sm font-bold text-primary" href="myorders.html">My Orders</a>
+<a class="text-sm font-medium hover:text-primary transition-colors text-text-main dark:text-gray-300" href="profile.html">Profile</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="hidden sm:flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-bold text-[#0d1b0d] shadow-sm hover:bg-[#0fd60f] transition-colors">
+<span class="material-symbols-outlined text-[18px]">account_balance_wallet</span>
+<span>450 Pts</span>
+</button>
+<div class="size-10 rounded-full bg-cover bg-center border-2 border-primary/20" data-alt="Student profile portrait" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuADs49ICrZmchhnGGFlmQX_t-f07QSnjn6N1654tRH0A_Fi-SUMH-2dVAC6VnGPSvXKOhOYxo9uy86Tb848HUUjahzTt-fyRdVWoY5aMm4Bs8fzxp34ksj8XHNq5M6oN1iKxDcOngc3knC8g8951R-80jKwW9HwKvJAkGKJ8cYoYjK7MkyX8kSqS0Er4TpbfM9c8H9sgwj8BACDUvsp7sdC_15BZeUguDV59kGXBgb9omqGHNoYmr-f-ivth8KcjVS9yKDZthhMeZyB");'>
+</div>
+</div>
+</div>
+</header>
+<main class="flex-1 w-full px-4 py-8 lg:px-8">
+<div class="mx-auto max-w-[1024px] flex flex-col gap-8">
+
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<h1 class="text-3xl md:text-4xl font-extrabold tracking-tight text-text-main dark:text-white">My Orders</h1>
+<p class="mt-2 text-text-muted dark:text-gray-400">Track your current meal status and view past transactions.</p>
+</div>
+
+<div class="sm:hidden flex items-center gap-2 rounded-lg bg-primary/10 px-4 py-2">
+<span class="text-sm font-bold text-primary">Balance: 450 Points</span>
+</div>
+</div>
+
+<section class="flex flex-col gap-4">
+<h2 class="text-xl font-bold text-text-main dark:text-white flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">timelapse</span>
+                    Active Order
+                </h2>
+<div class="w-full rounded-2xl bg-card-light dark:bg-card-dark shadow-sm border border-gray-100 dark:border-[#1f3a1f] overflow-hidden">
+<div class="p-6 md:p-8">
+<div class="flex flex-col lg:flex-row gap-8">
+
+<div class="w-full lg:w-1/4 shrink-0">
+<div class="aspect-square w-full rounded-xl bg-cover bg-center" data-alt="Indian vegetarian thali meal" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCtkOv_CFsNJzLtl29kLNnk0Q3NeUIkp59CEgD1w15OJqjJJdE40CBFFEbcfOEVcQIY5lkhkgS0ao0My7-yUxxI3DBj4iGqXRH2h090-4xiT-JgmuOoltPZAQi1rroryZc77ON_WnCDMwOXb6wiQGYowqlUk_ScVNKHqVZSZr-ML97M81vgOGuwNJAbrdS453W9KgfhUPNjjmPLG2DxrGvJ8mEkjkWvChuRasw-TDQqaA0QFLBM73PW_zNiNOLZu0XLwCS0fn1vPzjj");'>
+</div>
+</div>
+
+<div class="flex-1 flex flex-col justify-between gap-6">
+<div class="flex flex-wrap justify-between items-start gap-4">
+<div>
+<div class="flex items-center gap-3 mb-1">
+<h3 class="text-xl font-bold text-text-main dark:text-white">Veg Thali Combo</h3>
+<span class="bg-primary/20 text-[#0d6e0d] dark:text-primary text-xs font-bold px-2 py-0.5 rounded uppercase">Order #4092</span>
+</div>
+<p class="text-sm text-gray-500 dark:text-gray-400">Placed on Oct 24, 12:15 PM</p>
+<ul class="mt-3 text-sm text-text-main dark:text-gray-300 space-y-1">
+<li class="flex items-center gap-2"><span class="size-1.5 rounded-full bg-primary"></span> 1x Standard Thali</li>
+<li class="flex items-center gap-2"><span class="size-1.5 rounded-full bg-primary"></span> 1x Extra Rice Bowl</li>
+<li class="flex items-center gap-2"><span class="size-1.5 rounded-full bg-primary"></span> 1x Curd Cup</li>
+</ul>
+</div>
+<div class="text-right flex flex-col items-end">
+<div class="text-2xl font-bold text-primary">45 Pts</div>
+<button class="mt-2 text-xs font-medium text-gray-400 underline hover:text-primary">Report Issue</button>
+
+<div class="mt-4 p-2 bg-white rounded-lg shadow-sm border border-gray-100 hidden md:block">
+<img alt="Pickup QR Code" class="size-20" data-alt="QR Code for order pickup" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNfpzoMLDISqEPNGn1RoJRVC_ezOa0GrNZXKTa3ioAX0SoqrpWkuzcB4is9vCOJq319BGwXgAIopzuoKLFT7LgOOioqHG3ufYMP8TKpnpNwj6BsVv3ad4LiCMQiYHTcxok7vQeF78_IrFub2FxXBtE_O2Lt9fewBM6cFji10O6EwyVHgHeiDG_3oihbMJf9hyTgjEmHT4A6DX6X6iMYHWLwzwpVpUCYvPohB9bBNQnVYJi75ZVlRSUuR3Q2GqJxRjwMAjQpl85tGoE"/>
+</div>
+</div>
+</div>
+
+<div class="mt-4">
+<div class="flex items-center justify-between mb-2">
+<span class="text-sm font-bold text-primary">Ready for Pickup</span>
+<span class="text-xs font-medium text-gray-400">Est. Pickup: 12:45 PM</span>
+</div>
+<div class="relative w-full h-2 bg-gray-100 dark:bg-gray-700 rounded-full">
+<div class="absolute top-0 left-0 h-full bg-primary rounded-full" style="width: 100%;"></div>
+
+<div class="absolute top-1/2 -translate-y-1/2 left-0 w-full flex justify-between px-0.5">
+
+<div class="relative group">
+<div class="size-4 bg-primary rounded-full border-2 border-white dark:border-gray-800 shadow-sm"></div>
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] font-bold text-text-main dark:text-gray-300 whitespace-nowrap">Placed</span>
+</div>
+
+<div class="relative group">
+<div class="size-4 bg-primary rounded-full border-2 border-white dark:border-gray-800 shadow-sm"></div>
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] font-bold text-text-main dark:text-gray-300 whitespace-nowrap">Accepted</span>
+</div>
+
+<div class="relative group">
+<div class="size-4 bg-primary rounded-full border-2 border-white dark:border-gray-800 shadow-sm"></div>
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] font-bold text-text-main dark:text-gray-300 whitespace-nowrap">Cooking</span>
+</div>
+
+<div class="relative group">
+<div class="size-4 bg-primary rounded-full border-2 border-white dark:border-gray-800 shadow-sm animate-pulse"></div>
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] font-bold text-primary whitespace-nowrap">Ready</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-primary/10 px-6 py-3 flex items-center gap-2 text-sm text-text-main dark:text-gray-200">
+<span class="material-symbols-outlined text-[18px]">info</span>
+                        Please show the QR code at Counter 2 for pickup.
+                    </div>
+</div>
+</section>
+
+<section class="flex flex-col gap-4 mt-4">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+<h2 class="text-xl font-bold text-text-main dark:text-white flex items-center gap-2">
+<span class="material-symbols-outlined text-gray-400">history</span>
+                        Order History
+                    </h2>
+
+<div class="flex gap-2">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-2.5 top-1/2 -translate-y-1/2 text-gray-400 text-[18px]">search</span>
+<input class="pl-9 pr-4 py-2 text-sm rounded-lg border border-gray-200 dark:border-[#1f3a1f] bg-white dark:bg-card-dark focus:ring-2 focus:ring-primary focus:border-transparent outline-none w-full sm:w-48 text-text-main dark:text-gray-200" placeholder="Search orders..." type="text"/>
+</div>
+<button class="flex items-center gap-2 px-3 py-2 bg-white dark:bg-card-dark border border-gray-200 dark:border-[#1f3a1f] rounded-lg text-sm font-medium hover:bg-gray-50 dark:hover:bg-[#233823] text-text-main dark:text-gray-200">
+<span class="material-symbols-outlined text-[18px]">filter_list</span>
+                            Filter
+                        </button>
+</div>
+</div>
+
+<div class="w-full overflow-hidden rounded-xl border border-gray-200 dark:border-[#1f3a1f] bg-card-light dark:bg-card-dark shadow-sm">
+<div class="overflow-x-auto custom-scrollbar">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-gray-50 dark:bg-[#152915] border-b border-gray-100 dark:border-[#1f3a1f]">
+<th class="p-4 text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 whitespace-nowrap">Date</th>
+<th class="p-4 text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 whitespace-nowrap">Order ID</th>
+<th class="p-4 text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 min-w-[200px]">Items Summary</th>
+<th class="p-4 text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 text-right whitespace-nowrap">Cost</th>
+<th class="p-4 text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 whitespace-nowrap">Status</th>
+<th class="p-4 text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 text-center whitespace-nowrap">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-gray-100 dark:divide-[#1f3a1f]">
+
+<tr class="group hover:bg-gray-50/50 dark:hover:bg-[#152915]/50 transition-colors">
+<td class="p-4 text-sm font-medium text-text-main dark:text-gray-200 whitespace-nowrap">Oct 23, 2023</td>
+<td class="p-4 text-sm text-gray-500 dark:text-gray-400 font-mono">#4088</td>
+<td class="p-4 text-sm text-text-main dark:text-gray-200">
+<div class="truncate max-w-[250px]">Masala Dosa, Coffee</div>
+</td>
+<td class="p-4 text-sm font-bold text-text-main dark:text-gray-200 text-right">30 Pts</td>
+<td class="p-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400">
+<span class="size-1.5 rounded-full bg-green-500"></span> Delivered
+                                        </span>
+</td>
+<td class="p-4 text-center">
+<button class="text-xs font-bold text-primary hover:underline">Reorder</button>
+</td>
+</tr>
+
+<tr class="group hover:bg-gray-50/50 dark:hover:bg-[#152915]/50 transition-colors">
+<td class="p-4 text-sm font-medium text-text-main dark:text-gray-200 whitespace-nowrap">Oct 22, 2023</td>
+<td class="p-4 text-sm text-gray-500 dark:text-gray-400 font-mono">#4052</td>
+<td class="p-4 text-sm text-text-main dark:text-gray-200">
+<div class="truncate max-w-[250px]">Chicken Biryani Special, Coke</div>
+</td>
+<td class="p-4 text-sm font-bold text-text-main dark:text-gray-200 text-right">65 Pts</td>
+<td class="p-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400">
+<span class="size-1.5 rounded-full bg-green-500"></span> Delivered
+                                        </span>
+</td>
+<td class="p-4 text-center">
+<button class="text-xs font-bold text-primary hover:underline">Reorder</button>
+</td>
+</tr>
+
+<tr class="group hover:bg-gray-50/50 dark:hover:bg-[#152915]/50 transition-colors">
+<td class="p-4 text-sm font-medium text-text-main dark:text-gray-200 whitespace-nowrap">Oct 20, 2023</td>
+<td class="p-4 text-sm text-gray-500 dark:text-gray-400 font-mono">#3990</td>
+<td class="p-4 text-sm text-text-main dark:text-gray-200">
+<div class="truncate max-w-[250px]">Veg Noodles, Manchurian</div>
+</td>
+<td class="p-4 text-sm font-bold text-text-main dark:text-gray-200 text-right">40 Pts</td>
+<td class="p-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400">
+<span class="size-1.5 rounded-full bg-red-500"></span> Cancelled
+                                        </span>
+</td>
+<td class="p-4 text-center">
+<button class="text-xs font-bold text-gray-400 cursor-not-allowed">Reorder</button>
+</td>
+</tr>
+
+<tr class="group hover:bg-gray-50/50 dark:hover:bg-[#152915]/50 transition-colors">
+<td class="p-4 text-sm font-medium text-text-main dark:text-gray-200 whitespace-nowrap">Oct 18, 2023</td>
+<td class="p-4 text-sm text-gray-500 dark:text-gray-400 font-mono">#3876</td>
+<td class="p-4 text-sm text-text-main dark:text-gray-200">
+<div class="truncate max-w-[250px]">Rajma Chawal, Papad</div>
+</td>
+<td class="p-4 text-sm font-bold text-text-main dark:text-gray-200 text-right">35 Pts</td>
+<td class="p-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400">
+<span class="size-1.5 rounded-full bg-green-500"></span> Delivered
+                                        </span>
+</td>
+<td class="p-4 text-center">
+<button class="text-xs font-bold text-primary hover:underline">Reorder</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div class="p-4 border-t border-gray-100 dark:border-[#1f3a1f] flex items-center justify-between bg-gray-50/50 dark:bg-[#152915]/30">
+<p class="text-xs text-gray-500 dark:text-gray-400">Showing 1-4 of 24 orders</p>
+<div class="flex gap-2">
+<button class="size-8 flex items-center justify-center rounded-lg bg-white dark:bg-card-dark border border-gray-200 dark:border-[#1f3a1f] text-gray-400 hover:text-primary hover:border-primary disabled:opacity-50 transition-all">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<button class="size-8 flex items-center justify-center rounded-lg bg-white dark:bg-card-dark border border-gray-200 dark:border-[#1f3a1f] text-gray-400 hover:text-primary hover:border-primary transition-all">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+
+<footer class="mt-auto border-t border-[#e7f3e7] dark:border-[#1f3a1f] py-6 px-4 bg-white dark:bg-card-dark">
+<div class="mx-auto max-w-[1280px] flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+<p>© 2023 MessMate System. All rights reserved.</p>
+<div class="flex gap-6">
+<a class="hover:text-primary transition-colors" href="#">Help Center</a>
+<a class="hover:text-primary transition-colors" href="#">Privacy</a>
+<a class="hover:text-primary transition-colors" href="#">Terms</a>
+</div>
+</div>
+</footer>
+</body></html>

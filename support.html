@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Support: Mess &amp; Faculty</title>
+
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800;900&amp;family=Noto+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec13",
+                        "primary-dark": "#0fb80f",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102210",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1a331a",
+                        "text-main": "#0d1b0d",
+                        "text-secondary": "#4c9a4c",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "md": "0.375rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-text-main dark:text-gray-100 font-display transition-colors duration-200">
+
+<nav class="sticky top-0 z-50 border-b border-[#e7f3e7] dark:border-[#1a331a] bg-surface-light/95 dark:bg-surface-dark/95 backdrop-blur-sm">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-16">
+
+<div class="flex items-center gap-3">
+<div class="flex items-center justify-center w-8 h-8 rounded-lg bg-primary/20 text-primary-dark dark:text-primary">
+<span>
+    <img src="logo.png" alt="logo">
+</span>
+</div>
+<span class="text-xl font-bold tracking-tight text-text-main dark:text-white">MessMate</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-sm font-medium text-text-main hover:text-primary dark:text-gray-200 dark:hover:text-primary transition-colors" href="dashboad.html">Home</a>
+<a class="text-sm font-medium text-text-main hover:text-primary dark:text-gray-200 dark:hover:text-primary transition-colors" href="menu.html">Menu</a>
+<a class="text-sm font-medium text-text-main hover:text-primary dark:text-gray-200 dark:hover:text-primary transition-colors" href="myorders.html">Order History</a>
+<a class="text-sm font-medium text-primary dark:text-primary" href="support.html">Support</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-text-main dark:text-white hover:bg-gray-100 dark:hover:bg-[#254225] rounded-full transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-gray-200 dark:bg-gray-700 overflow-hidden border border-gray-300 dark:border-gray-600">
+<div class="w-full h-full bg-cover bg-center" data-alt="User profile avatar" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB4Tx_935oazqwVBffwVDOtctchF3c5YOb2kmaC5kavopCDQ9d5LDNQSktS2oYyQr3r-ZfOzAXMwCI932VOp0dyEOYo12m5AZ2UV0jHaZ2Xc6uuNG8V_bTA7jgNjs1hG4m739zwPWh0yME2lSGfkcIyRIUUW_QtHtREFisBu8VJVk9XBKIfcNEJfWQVRtOmMHo191ZKWK4a8VkyZ8kYS--tu8FyQVhTZxY2USk5XyYBRh46MK7FjO058_J2PW138RMgQ9_PQopXP0-n');"></div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+<div class="relative bg-surface-dark dark:bg-black">
+<div class="absolute inset-0 z-0">
+<div class="w-full h-full bg-cover bg-center opacity-40 mix-blend-overlay" data-alt="Abstract green geometric pattern background" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC8qsQA7rsouteTwrBgnHD8JEJPAqpnivYaysWxKW5OnbR9OaMQp5OIfdmYyjISsav_xda2AzKbMZgUPhc6jDNaSiKN6ov11Cqw98_G_w78GlA1Z-Io5J-Prp8B0hmbIjvq5sOtVVTFYxgJ0P7X0E2qQFuHsJ9ex9HgtUlYYPaxkafVOOw6kY_9PX6CzIaWreCAH6pVKy3JqZGyn1GkEORrpIZfaeAIkkWWym3Klwm0jsF1oecDHzx_NJ0aJA1hpwfZkRpRGGmRZhKA');"></div>
+<div class="absolute inset-0 bg-gradient-to-b from-black/60 to-background-light dark:to-background-dark"></div>
+</div>
+<div class="relative z-10 max-w-4xl mx-auto px-4 py-16 sm:py-24 text-center">
+<h1 class="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight mb-4 leading-tight">
+                Janmenjay Lohra, How can we help you with the Mess today?
+            </h1>
+<p class="text-gray-200 text-base sm:text-lg mb-8 max-w-2xl mx-auto">
+                Search for existing questions, browse guidelines, or start a new discussion regarding food, refunds, or faculty dining.
+            </p>
+<div class="max-w-2xl mx-auto mb-8">
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-gray-400 group-focus-within:text-primary">search</span>
+</div>
+<input class="block w-full pl-11 pr-4 py-4 rounded-xl border-none focus:ring-2 focus:ring-primary bg-white text-gray-900 placeholder-gray-500 shadow-xl text-base sm:text-lg" placeholder="Search discussions, topics, or policies..." type="text"/>
+<div class="absolute inset-y-0 right-1.5 flex items-center">
+<button class="bg-primary hover:bg-primary-dark text-text-main font-bold py-2.5 px-6 rounded-lg transition-colors text-sm sm:text-base">
+                            Search
+                        </button>
+</div>
+</div>
+</div>
+<div class="flex flex-wrap justify-center gap-2 sm:gap-3">
+<span class="text-gray-300 text-sm font-medium self-center mr-1">Popular:</span>
+<a class="px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 text-white text-sm backdrop-blur-sm border border-white/10 transition-colors" href="#">#Refunds</a>
+<a class="px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 text-white text-sm backdrop-blur-sm border border-white/10 transition-colors" href="#">#MenuChange</a>
+<a class="px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 text-white text-sm backdrop-blur-sm border border-white/10 transition-colors" href="#">#Dietary</a>
+<a class="px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 text-white text-sm backdrop-blur-sm border border-white/10 transition-colors" href="#">#GuestMeals</a>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 -mt-8 relative z-20">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<div class="lg:col-span-8 flex flex-col gap-6">
+<div class="bg-surface-light dark:bg-surface-dark rounded-xl shadow-sm border border-[#e7f3e7] dark:border-[#254225] overflow-hidden p-1">
+<div class="flex flex-col sm:flex-row items-stretch">
+<div class="flex-1 p-6 flex flex-col justify-center gap-3">
+<div class="flex items-center gap-2">
+<span class="bg-primary/20 text-primary-dark dark:text-primary px-2 py-0.5 rounded text-xs font-bold uppercase tracking-wider">Featured Policy</span>
+</div>
+<h3 class="text-xl font-bold text-text-main dark:text-white leading-tight">Understanding Monthly Points &amp; Carry Overs</h3>
+<p class="text-text-secondary dark:text-gray-400 text-sm">Credits are allocated on the 1st of every month. Unused points from the previous semester do not carry forward. Learn about the exceptions.</p>
+<div class="mt-2">
+<button class="inline-flex items-center gap-2 text-primary-dark dark:text-primary font-bold text-sm hover:underline">
+                                    Read Full Policy <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="w-full sm:w-48 h-48 sm:h-auto bg-cover bg-center shrink-0 rounded-lg sm:rounded-r-lg sm:rounded-l-none" data-alt="Student checking balance on phone" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBLx-xZ91GuCbz6wbMUpYuoFZDinCLFHKOS4qAk97Nz8cKpOZ_LnoCGmWKh40Kta3xKtLHriTFJoHGV-yvdCZwI51ZhE611K8gBK2Nn_N5rCPxkREoH0vvVnCkO2KNujHonzjHVNSY1UWYEx1CC2_-UblDHmJS2JMmTNg_DQ6XzHkXUNwXgBF_5qFlwhLOg7HjtDb0MzGuQSI-XNES4J8zFJ6rykDvC34lr1rv6CNEamEmVMvnrWa4a83GGaskGyasAfi7Ju-p30n3N');"></div>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mt-4">
+<h2 class="text-xl font-bold text-text-main dark:text-white">Community Discussions</h2>
+<div class="flex items-center gap-2">
+<div class="relative">
+<select class="appearance-none bg-surface-light dark:bg-surface-dark border border-gray-200 dark:border-gray-700 text-text-main dark:text-gray-200 text-sm rounded-lg pl-3 pr-8 py-2 focus:ring-primary focus:border-primary cursor-pointer">
+<option>Newest First</option>
+<option>Top Voted</option>
+<option>Unanswered</option>
+</select>
+<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-500">
+<span class="material-symbols-outlined text-sm">expand_more</span>
+</div>
+</div>
+<button class="p-2 text-gray-500 hover:text-primary bg-surface-light dark:bg-surface-dark border border-gray-200 dark:border-gray-700 rounded-lg">
+<span class="material-symbols-outlined text-xl">filter_list</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+<div class="bg-surface-light dark:bg-surface-dark rounded-xl p-5 shadow-sm border border-[#e7f3e7] dark:border-[#254225] hover:border-primary/50 transition-colors cursor-pointer group">
+<div class="flex gap-4">
+<div class="flex flex-col items-center gap-1 min-w-[3rem]">
+<button class="text-gray-400 hover:text-primary transition-colors"><span class="material-symbols-outlined">expand_less</span></button>
+<span class="font-bold text-primary text-lg">24</span>
+<button class="text-gray-400 hover:text-primary transition-colors"><span class="material-symbols-outlined">expand_more</span></button>
+</div>
+<div class="flex-1">
+<div class="flex flex-wrap items-center gap-2 mb-1">
+<span class="px-2 py-0.5 rounded text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">check_circle</span> Answered
+                                    </span>
+<span class="text-xs text-gray-400">• Posted 2 hours ago</span>
+</div>
+<h3 class="text-lg font-bold text-text-main dark:text-white mb-1 group-hover:text-primary transition-colors">Can I transfer points to next month?</h3>
+<p class="text-sm text-text-secondary dark:text-gray-400 line-clamp-2">I have about 300 points left for this month but I am going home for the weekend. Is it possible to carry these over or transfer them to a friend?</p>
+
+<div class="flex items-center gap-4 mt-3">
+<div class="flex items-center gap-2">
+<div class="w-5 h-5 rounded-full bg-gray-200 bg-cover" data-alt="User avatar" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA0ehjVcn_G3Up_lCTsgfcu6pvT6FRoKNZGtiJyraVlpdnDDUgVTLmz5g2UfKUyKi54-68wtz3H1CVnRdsjLRhZHJMDelnRIaIE_ZeGWOW1E-TPBdC-djl-2QEAExceCa-jb1f_94oYUiBH4_HDShiqPdgpWDzrym_H0driKDqkK2SyfTWqXYoWl7eJdSZNOPwWI-XUSyvKW1N-KWaONAtokprndZ2PKsjzqeCJhf-N5oDdWtjoKWC_3wv8--iRqkiwtx-1li1ocyP1');"></div>
+<span class="text-xs font-medium text-gray-500 dark:text-gray-400">Sarah J.</span>
+</div>
+<span class="text-xs px-2 py-1 rounded bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">#PointsTransfer</span>
+<div class="ml-auto flex items-center gap-1 text-xs font-medium text-primary-dark dark:text-primary">
+<span class="material-symbols-outlined text-[16px] fill-current">verified</span>
+                                        Official Reply
+                                    </div>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark rounded-xl p-5 shadow-sm border border-[#e7f3e7] dark:border-[#254225] hover:border-primary/50 transition-colors cursor-pointer group">
+<div class="flex gap-4">
+<div class="flex flex-col items-center gap-1 min-w-[3rem]">
+<button class="text-gray-400 hover:text-primary transition-colors"><span class="material-symbols-outlined">expand_less</span></button>
+<span class="font-bold text-gray-600 dark:text-gray-400 text-lg">8</span>
+<button class="text-gray-400 hover:text-primary transition-colors"><span class="material-symbols-outlined">expand_more</span></button>
+</div>
+<div class="flex-1">
+<div class="flex flex-wrap items-center gap-2 mb-1">
+<span class="px-2 py-0.5 rounded text-xs font-medium bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">pending</span> Under Review
+                                    </span>
+<span class="text-xs text-gray-400">• Posted yesterday</span>
+</div>
+<h3 class="text-lg font-bold text-text-main dark:text-white mb-1 group-hover:text-primary transition-colors">Vegetarian option missing on Tuesday dinner</h3>
+<p class="text-sm text-text-secondary dark:text-gray-400 line-clamp-2">The menu said Paneer Butter Masala but we only got mixed veg. Can we get a refund for the difference or an update on why this happened?</p>
+<div class="flex items-center gap-4 mt-3">
+<div class="flex items-center gap-2">
+<div class="w-5 h-5 rounded-full bg-indigo-200 flex items-center justify-center text-[10px] font-bold text-indigo-700">RK</div>
+<span class="text-xs font-medium text-gray-500 dark:text-gray-400">Rahul K.</span>
+</div>
+<span class="text-xs px-2 py-1 rounded bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">#MenuChange</span>
+<div class="ml-auto flex items-center gap-1 text-xs text-gray-400">
+<span class="material-symbols-outlined text-[16px]">forum</span> 3 comments
+                                    </div>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark rounded-xl p-5 shadow-sm border border-[#e7f3e7] dark:border-[#254225] hover:border-primary/50 transition-colors cursor-pointer group">
+<div class="flex gap-4">
+<div class="flex flex-col items-center gap-1 min-w-[3rem]">
+<button class="text-gray-400 hover:text-primary transition-colors"><span class="material-symbols-outlined">expand_less</span></button>
+<span class="font-bold text-gray-400 dark:text-gray-500 text-lg">1</span>
+<button class="text-gray-400 hover:text-primary transition-colors"><span class="material-symbols-outlined">expand_more</span></button>
+</div>
+<div class="flex-1">
+<div class="flex flex-wrap items-center gap-2 mb-1">
+<span class="px-2 py-0.5 rounded text-xs font-medium bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-400 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">help_outline</span> Open
+                                    </span>
+<span class="text-xs text-gray-400">• Posted 4 hours ago</span>
+</div>
+<h3 class="text-lg font-bold text-text-main dark:text-white mb-1 group-hover:text-primary transition-colors">Faculty dining hours?</h3>
+<p class="text-sm text-text-secondary dark:text-gray-400 line-clamp-2">Are the faculty dining hours the same as student hours during the exam week?</p>
+<div class="flex items-center gap-4 mt-3">
+<div class="flex items-center gap-2">
+<div class="w-5 h-5 rounded-full bg-pink-200 flex items-center justify-center text-[10px] font-bold text-pink-700">AM</div>
+<span class="text-xs font-medium text-gray-500 dark:text-gray-400">Dr. A. Miller</span>
+</div>
+<span class="text-xs px-2 py-1 rounded bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">#Faculty</span>
+<div class="ml-auto flex items-center gap-1 text-xs text-gray-400">
+<span class="material-symbols-outlined text-[16px]">forum</span> 0 comments
+                                    </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="flex justify-center mt-4">
+<button class="px-4 py-2 text-sm font-medium text-text-secondary hover:text-primary-dark transition-colors">Load more discussions...</button>
+</div>
+</div>
+<div class="lg:col-span-4 flex flex-col gap-6">
+<button class="w-full flex items-center justify-center gap-2 bg-primary hover:bg-primary-dark text-text-main font-bold text-lg py-4 px-6 rounded-xl shadow-lg shadow-green-500/20 transition-all hover:scale-[1.02]">
+<span class="material-symbols-outlined">add_circle</span>
+                    Ask a Question
+                </button>
+<div class="bg-surface-light dark:bg-surface-dark rounded-xl border border-red-100 dark:border-red-900/30 overflow-hidden shadow-sm">
+<div class="bg-red-50 dark:bg-red-900/20 px-4 py-3 border-b border-red-100 dark:border-red-900/30 flex items-center gap-2">
+<span class="material-symbols-outlined text-red-600 dark:text-red-400">campaign</span>
+<h3 class="text-sm font-bold text-red-800 dark:text-red-300 uppercase tracking-wide">Important Announcement</h3>
+</div>
+<div class="p-4">
+<p class="text-text-main dark:text-white font-bold text-sm mb-1">Mess closed for deep cleaning</p>
+<p class="text-xs text-text-secondary dark:text-gray-400 mb-3">Sunday, Oct 24th from 2:00 PM to 6:00 PM. Please collect packed snacks before 1:30 PM.</p>
+<a class="text-xs font-bold text-red-600 dark:text-red-400 hover:underline" href="#">View Schedule</a>
+</div>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark rounded-xl border border-[#e7f3e7] dark:border-[#254225] shadow-sm p-5">
+<h3 class="text-lg font-bold text-text-main dark:text-white mb-4">Quick Guidelines</h3>
+<ul class="flex flex-col gap-3">
+<li>
+<a class="flex items-start gap-3 group" href="#">
+<div class="bg-[#f0f9f0] dark:bg-[#1a331a] p-1.5 rounded-lg group-hover:bg-primary/20 transition-colors text-primary-dark dark:text-primary">
+
+</div>
+<div>
+<p class="text-sm font-bold text-text-main dark:text-white group-hover:text-primary transition-colors">Guest Meal Policy</p>
+<p class="text-xs text-text-secondary dark:text-gray-500">Booking rules &amp; pricing</p>
+</div>
+</a>
+</li>
+<li class="h-px bg-gray-100 dark:bg-gray-800"></li>
+<li>
+<a class="flex items-start gap-3 group" href="#">
+<div class="bg-[#f0f9f0] dark:bg-[#1a331a] p-1.5 rounded-lg group-hover:bg-primary/20 transition-colors text-primary-dark dark:text-primary">
+<span class="material-symbols-outlined text-[20px]">report_problem</span>
+</div>
+<div>
+<p class="text-sm font-bold text-text-main dark:text-white group-hover:text-primary transition-colors">Hygiene Complaints</p>
+<p class="text-xs text-text-secondary dark:text-gray-500">Escalation matrix</p>
+</div>
+</a>
+</li>
+<li class="h-px bg-gray-100 dark:bg-gray-800"></li>
+<li>
+<a class="flex items-start gap-3 group" href="#">
+<div class="bg-[#f0f9f0] dark:bg-[#1a331a] p-1.5 rounded-lg group-hover:bg-primary/20 transition-colors text-primary-dark dark:text-primary">
+<span class="material-symbols-outlined text-[20px]">schedule</span>
+</div>
+<div>
+<p class="text-sm font-bold text-text-main dark:text-white group-hover:text-primary transition-colors">Dining Timings</p>
+<p class="text-xs text-text-secondary dark:text-gray-500">Weekdays vs Weekends</p>
+</div>
+</a>
+</li>
+</ul>
+<button class="w-full mt-5 py-2 text-xs font-bold text-text-secondary dark:text-gray-400 hover:text-primary dark:hover:text-primary border border-dashed border-gray-300 dark:border-gray-700 rounded-lg hover:border-primary transition-colors">
+                        View All Policies
+                    </button>
+</div>
+<div class="bg-gradient-to-br from-gray-900 to-black rounded-xl p-5 text-white shadow-md relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-6xl">support_agent</span>
+</div>
+<h3 class="text-base font-bold mb-2 relative z-10">Need Urgent Help?</h3>
+<p class="text-xs text-gray-400 mb-4 relative z-10">For emergency food issues or allergic reactions, contact the mess warden directly.</p>
+<button class="flex items-center gap-2 text-xs font-bold bg-white/10 hover:bg-white/20 backdrop-blur-md px-3 py-2 rounded-lg transition-colors relative z-10">
+<span class="material-symbols-outlined text-[16px]">call</span>
+                        +91 98765 43210
+                    </button>
+</div>
+</div>
+</div>
+</div>
+<div class="h-20"></div>
+</body></html>

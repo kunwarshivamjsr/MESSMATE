@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Campus Mess - Profile &amp; Settings</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#13ec13",
+              "background-light": "#f6f8f6",
+              "background-dark": "#102210",
+              "card-light": "#ffffff",
+              "card-dark": "#1a2e1a",
+            },
+            fontFamily: {
+              "display": ["Plus Jakarta Sans", "sans-serif"],
+              "body": ["Noto Sans", "sans-serif"],
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1;
+        }
+        
+
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: #13ec13;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #13ec13;
+        }
+        
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#0d1b0d] dark:text-white flex flex-col min-h-screen overflow-x-hidden selection:bg-primary selection:text-black">
+
+<header class="sticky top-0 z-50 w-full bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-[#e7f3e7] dark:border-[#1f3f1f]">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex h-16 items-center justify-between">
+
+<div class="flex items-center gap-3">
+<div class="size-8 bg-primary rounded flex items-center justify-center text-black">
+  <span>
+    <img src="logo.png" alt="logo">
+</span>
+</div>
+<h2 class="text-xl font-bold tracking-tight text-[#0d1b0d] dark:text-white">Campus Mess</h2>
+</div>
+
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary transition-colors" href="dashboad.html">Home</a>
+<a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary transition-colors" href="menu.html">Menu</a>
+<a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary transition-colors" href="myorders.html">Orders</a>
+<a class="text-sm font-bold text-primary" href="profile.html">Profile</a>
+</nav>
+
+<div class="flex items-center gap-4">
+<button class="flex items-center justify-center size-10 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-slate-700 dark:text-slate-200 relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 size-2 bg-primary rounded-full border border-white dark:border-background-dark"></span>
+</button>
+<div class="h-9 w-9 bg-center bg-cover rounded-full ring-2 ring-primary/30" data-alt="Portrait of a male student" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDXeiaco-Yk6xz-fFz3IKnRod7envcCeGPp-NUAg6VK5pw5M5_lb3nC9v0sNLVoH7hhYpGrs8h5eizQblniuqEHgqZMgsW9vSBhfPw98vFQ8kmiPhGW7Cq0ihA-vd7EQOkEKcBTEdhu-ywEHXF-3bZ9-ci2lzAqomqr-CGr7u4ehJW65jBaN_-xImhBAt5KdlU6UWm7TLyYHPY8aavEd2pEFZlatr24pVClXvF7e5DEPWL-gW6QHLLeeD83rS4rDPE1eWCaA5JbmDCh");'></div>
+</div>
+</div>
+</div>
+</header>
+
+<div class="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+<div class="md:hidden mb-6">
+<h1 class="text-2xl font-black tracking-tight text-[#0d1b0d] dark:text-white">Settings</h1>
+</div>
+<div class="flex flex-col lg:flex-row gap-8">
+
+<aside class="w-full lg:w-80 flex-shrink-0 flex flex-col gap-6">
+
+<div class="bg-card-light dark:bg-card-dark border border-slate-200 dark:border-slate-800 rounded-lg p-6 shadow-sm">
+<div class="flex flex-col items-center text-center">
+<div class="relative mb-4">
+<div class="size-24 bg-center bg-cover rounded-full ring-4 ring-background-light dark:ring-background-dark shadow-lg" data-alt="Portrait of a male student" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAnPWQxYeYni9uzMMpUxvBbQP6JXnjON6gs7G9tJlN7HM23ltPTJoTveKSX18nZTtLqcg5KO0xbAc6-Jbm-wLt1rV9JWtsQ_6vIDqOlNKDU2pNzHWTC-DupF1QGnjQt6QmY6BwJdOfz3YrPfhgrOQbVUWXitJUeyiG_H7x2sMNxk2Gg7voAyur61TLy7ekx5_1mnttNJBSjKBeiOd-5pbSDelVR0ctedzrPnbHYh5lJVpaKBzyQUs7rgpupSxFMYtpVaO8qMBJMfd9G");'></div>
+<button class="absolute bottom-0 right-0 p-1.5 bg-primary text-black rounded-full shadow-sm hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+</div>
+<h2 class="text-lg font-bold text-[#0d1b0d] dark:text-white">Janmenjay Lohra</h2>
+<p class="text-sm text-slate-500 dark:text-slate-400 mb-4">Block A - Room SA04</p>
+
+<div class="w-full bg-[#e7f3e7] dark:bg-[#1f3f1f] rounded-lg p-4 flex items-center justify-between">
+<div class="flex flex-col items-start">
+<span class="text-xs font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-400">Balance</span>
+<span class="text-2xl font-black text-primary">1,250 Pts</span>
+</div>
+<button class="text-xs font-bold bg-white dark:bg-slate-800 text-[#0d1b0d] dark:text-white px-3 py-2 rounded shadow-sm hover:shadow transition-shadow">
+                                Top-up
+                            </button>
+</div>
+</div>
+</div>
+
+<nav class="bg-card-light dark:bg-card-dark border border-slate-200 dark:border-slate-800 rounded-lg overflow-hidden shadow-sm">
+<div class="flex flex-col p-2">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg bg-primary/10 text-[#0d1b0d] dark:text-white font-medium" href="#">
+<span class="material-symbols-outlined fill text-primary">person</span>
+                            Personal Info
+                        </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-slate-50 dark:hover:bg-white/5 text-slate-600 dark:text-slate-300 transition-colors" href="#">
+<span class="material-symbols-outlined">restaurant_menu</span>
+                            Dietary Preferences
+                        </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-slate-50 dark:hover:bg-white/5 text-slate-600 dark:text-slate-300 transition-colors" href="#">
+<span class="material-symbols-outlined">history</span>
+                            Order History
+                        </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-slate-50 dark:hover:bg-white/5 text-slate-600 dark:text-slate-300 transition-colors" href="#">
+<span class="material-symbols-outlined">shield</span>
+                            Security
+                        </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-slate-50 dark:hover:bg-white/5 text-slate-600 dark:text-slate-300 transition-colors" href="#">
+<span class="material-symbols-outlined">notifications</span>
+                            Notifications
+                        </a>
+</div>
+</nav>
+<div class="px-4">
+  <a href="index.html" 
+     class="flex w-full items-center justify-center gap-2 text-red-500 hover:text-red-600 text-sm font-semibold py-2 transition-colors">
+    <span class="material-symbols-outlined">logout</span>
+    Sign Out
+  </a>
+</div>
+</aside>
+
+<main class="flex-1 min-w-0">
+
+<div class="mb-6 hidden md:block">
+<h1 class="text-3xl font-black tracking-tight text-[#0d1b0d] dark:text-white">Personal Information</h1>
+<p class="text-slate-500 dark:text-slate-400 mt-1">Manage your personal details and contact information.</p>
+</div>
+
+<div class="bg-card-light dark:bg-card-dark border border-slate-200 dark:border-slate-800 rounded-lg shadow-sm p-6 lg:p-8">
+<form class="space-y-8">
+
+<div>
+<h3 class="text-lg font-bold text-[#0d1b0d] dark:text-white mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">badge</span>
+                                Basic Details
+                            </h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<label class="block">
+<span class="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5 block">Full Name</span>
+<input class="w-full h-12 rounded-lg border-slate-200 dark:border-slate-700 bg-background-light dark:bg-background-dark text-[#0d1b0d] dark:text-white focus:border-primary focus:ring-primary px-4 font-medium transition-shadow shadow-sm" type="text" value="Janmenjay Lohra"/>
+</label>
+<label class="block">
+<span class="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5 block">Student ID</span>
+<div class="relative">
+<input class="w-full h-12 rounded-lg border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800/50 text-slate-500 cursor-not-allowed px-4 font-medium shadow-sm" disabled="" type="text" value="RU-25-111305"/>
+<span class="absolute right-3 top-3 text-slate-400 material-symbols-outlined text-[20px]">lock</span>
+</div>
+<span class="text-xs text-slate-400 mt-1">Contact admin to change ID</span>
+</label>
+<label class="block">
+<span class="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5 block">Hostel Block</span>
+<input class="w-full h-12 rounded-lg border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800/50 text-slate-500 cursor-not-allowed px-4 font-medium shadow-sm" disabled="" type="text" value="Block A"/>
+</label>
+<label class="block">
+<span class="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5 block">Room Number</span>
+<input class="w-full h-12 rounded-lg border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800/50 text-slate-500 cursor-not-allowed px-4 font-medium shadow-sm" disabled="" type="text" value="SA04"/>
+</label>
+</div>
+</div>
+<hr class="border-slate-100 dark:border-slate-800"/>
+
+<div>
+<h3 class="text-lg font-bold text-[#0d1b0d] dark:text-white mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">contact_phone</span>
+                                Contact Information
+                            </h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<label class="block">
+<span class="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5 block">Email Address</span>
+<input class="w-full h-12 rounded-lg border-slate-200 dark:border-slate-700 bg-background-light dark:bg-background-dark text-[#0d1b0d] dark:text-white focus:border-primary focus:ring-primary px-4 font-medium transition-shadow shadow-sm" type="email" value="Janmen.jay@rungta.org"/>
+</label>
+<label class="block">
+<span class="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5 block">Phone Number</span>
+<input class="w-full h-12 rounded-lg border-slate-200 dark:border-slate-700 bg-background-light dark:bg-background-dark text-[#0d1b0d] dark:text-white focus:border-primary focus:ring-primary px-4 font-medium transition-shadow shadow-sm" type="tel" value="+91 8521377769"/>
+</label>
+</div>
+</div>
+
+<div class="bg-[#f8fcf8] dark:bg-[#152515] rounded-lg p-4 border border-[#e7f3e7] dark:border-[#1f3f1f]">
+<div class="flex items-start gap-4">
+<div class="bg-primary/20 p-2 rounded text-green-700 dark:text-primary">
+<span class="material-symbols-outlined">nutrition</span>
+</div>
+<div class="flex-1">
+<h4 class="font-bold text-[#0d1b0d] dark:text-white">Dietary Preference</h4>
+<p class="text-sm text-slate-500 dark:text-slate-400 mb-3">Your default meal plan is set to <span class="font-semibold text-primary">Non-Vegetarian</span>.</p>
+<div class="flex flex-wrap gap-2">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium bg-green-100 text-green-800 border border-green-200">
+                                            High Protein
+                                        </span>
+<span class="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium bg-red-100 text-red-800 border border-red-200">
+                                            No Peanuts
+                                        </span>
+</div>
+</div>
+<button class="text-sm font-semibold text-primary hover:text-green-600 transition-colors" type="button">Edit</button>
+</div>
+</div>
+
+<div>
+<h3 class="text-lg font-bold text-[#0d1b0d] dark:text-white mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">circle_notifications</span>
+                                Quick Alerts
+                            </h3>
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<div>
+<p class="font-medium text-[#0d1b0d] dark:text-white">Order Ready Alerts</p>
+<p class="text-sm text-slate-500 dark:text-slate-400">Get notified when your food is ready for pickup</p>
+</div>
+
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-slate-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<div class="flex items-center justify-between">
+<div>
+<p class="font-medium text-[#0d1b0d] dark:text-white">Low Balance Warning</p>
+<p class="text-sm text-slate-500 dark:text-slate-400">Alert me when points drop below 100</p>
+</div>
+
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-slate-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+</div>
+
+<div class="pt-4 flex items-center justify-end gap-4 border-t border-slate-100 dark:border-slate-800">
+<button class="px-6 py-2.5 rounded-lg text-sm font-bold text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" type="button">
+                                Cancel
+                            </button>
+<button class="px-6 py-2.5 rounded-lg text-sm font-bold bg-primary text-[#0d1b0d] hover:bg-green-400 hover:shadow-lg hover:shadow-green-400/20 transition-all flex items-center gap-2" type="submit">
+<span class="material-symbols-outlined text-[18px]">save</span>
+                                Save Changes
+                            </button>
+</div>
+</form>
+</div>
+</main>
+</div>
+</div>
+</body></html>

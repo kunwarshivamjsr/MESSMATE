@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Mess Menu - MessMate</title>
+
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#13ec13",
+            "background-light": "#f6f8f6",
+            "background-dark": "#102210",
+            "card-light": "#ffffff",
+            "card-dark": "#162e16",
+            "text-dark": "#0d1b0d",
+            "text-light": "#e7f3e7"
+          },
+          fontFamily: {
+            "display": ["Plus Jakarta Sans", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "2xl": "1rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    .scrollbar-hide::-webkit-scrollbar {
+      display: none;
+    }
+
+    .scrollbar-hide {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+
+<body
+  class="bg-background-light dark:bg-background-dark font-display text-text-dark dark:text-text-light min-h-screen flex flex-col selection:bg-primary selection:text-text-dark">
+
+  <!-- Header -->
+  <header
+    class="sticky top-0 z-50 w-full bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-[#e7f3e7] dark:border-[#1f3f1f]">
+    <div class="max-w-[1440px] mx-auto px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="size-8 bg-primary rounded-lg flex items-center justify-center text-text-dark">
+          <span><img src="logo.png" alt="logo"></span>
+        </div>
+        <h2 class="text-xl font-bold tracking-tight text-text-dark dark:text-white">MessMate</h2>
+      </div>
+
+      <nav class="hidden md:flex items-center gap-8">
+        <a class="text-sm font-semibold text-text-dark dark:text-white hover:text-primary transition-colors"
+          href="dashboad.html">Home</a>
+        <a class="text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-primary transition-colors"
+          href="menu.html">Weekly Menu</a>
+        <a class="text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-primary transition-colors"
+          href="myorders.html">Order History</a>
+        <a class="text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-primary transition-colors"
+          href="profile.html">Profile</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <div
+          class="hidden sm:flex items-center bg-[#e7f3e7] dark:bg-[#1a331a] rounded-lg px-3 py-1.5 border border-[#cfe7cf] dark:border-[#2a4d2a]">
+          <span class="material-symbols-outlined text-primary text-[20px] mr-2">savings</span>
+          <span class="text-sm font-bold text-text-dark dark:text-white">1200 Pts</span>
+        </div>
+        <button class="md:hidden p-2 text-text-dark dark:text-white">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-1 max-w-[1440px] w-full mx-auto p-6 md:p-8 flex flex-col lg:flex-row gap-8">
+
+    <!-- LEFT: main content -->
+    <div class="flex-1 flex flex-col gap-8">
+      <!-- Greeting + search -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+        <div>
+          <p class="text-sm font-bold text-primary mb-1 uppercase tracking-wider" id="currentDate">Sunday, 12 Oct</p>
+          <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight text-text-dark dark:text-white leading-tight">
+            Good Afternoon, <span class="text-gray-500 dark:text-gray-400">Janmenjay Lohra</span>
+          </h1>
+          <p class="text-gray-600 dark:text-gray-400 mt-2">What would you like to have for lunch today?</p>
+        </div>
+
+        <div class="relative w-full md:w-64">
+          <span
+            class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-[20px]">search</span>
+          <input
+            class="w-full pl-10 pr-4 py-2.5 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-card-dark text-sm focus:outline-none focus:ring-2 focus:ring-primary/50"
+            placeholder="Search menu..." type="text" />
+        </div>
+      </div>
+
+     
+      <!-- Meal tabs -->
+      <div class="border-b border-gray-200 dark:border-gray-800">
+        <div class="flex gap-8 overflow-x-auto pb-px scrollbar-hide">
+
+          <!-- Breakfast tab -> goes to breakfast.html -->
+          <a href="breakfast.html"
+            class="group flex items-center gap-2 pb-3 border-b-2 border-transparent hover:border-gray-300 dark:hover:border-gray-600 transition-all min-w-fit">
+            <span
+              class="material-symbols-outlined text-gray-400 group-hover:text-gray-600 dark:group-hover:text-gray-300">
+              bakery_dining
+            </span>
+            <span
+              class="text-sm font-medium text-gray-500 group-hover:text-gray-700 dark:text-gray-400 dark:group-hover:text-gray-200">
+              Breakfast
+            </span>
+          </a>
+
+          <!-- Lunch tab (active on this page) -->
+          <button class="group flex items-center gap-2 pb-3 border-b-[3px] border-primary transition-all min-w-fit">
+            <span class="material-symbols-outlined text-primary fill-1">lunch_dining</span>
+            <span class="text-sm font-bold text-text-dark dark:text-white">Lunch</span>
+            <span
+              class="bg-primary/20 text-green-700 dark:text-green-300 text-[10px] font-bold px-1.5 py-0.5 rounded ml-1">
+              ACTIVE
+            </span>
+          </button>
+
+          <!-- Snacks tab -->
+          <button
+            class="group flex items-center gap-2 pb-3 border-b-2 border-transparent hover:border-gray-300 dark:hover:border-gray-600 transition-all min-w-fit">
+            <span
+              class="material-symbols-outlined text-gray-400 group-hover:text-gray-600 dark:group-hover:text-gray-300">
+              cookie
+            </span>
+            <span
+              class="text-sm font-medium text-gray-500 group-hover:text-gray-700 dark:text-gray-400 dark:group-hover:text-gray-200">
+              Snacks
+            </span>
+          </button>
+
+          <!-- Dinner tab -->
+          <button
+            class="group flex items-center gap-2 pb-3 border-b-2 border-transparent hover:border-gray-300 dark:hover:border-gray-600 transition-all min-w-fit">
+            <span
+              class="material-symbols-outlined text-gray-400 group-hover:text-gray-600 dark:group-hover:text-gray-300">
+              dinner_dining
+            </span>
+            <span
+              class="text-sm font-medium text-gray-500 group-hover:text-gray-700 dark:text-gray-400 dark:group-hover:text-gray-200">
+              Dinner
+            </span>
+          </button>
+
+        </div>
+      </div>
+      <!-- Chef's special -->
+      <div
+        class="relative overflow-hidden rounded-2xl bg-[#102210] p-6 md:p-8 flex flex-col md:flex-row items-center gap-6 shadow-lg group">
+        <div
+          class="absolute top-0 right-0 w-64 h-64 bg-primary/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none">
+        </div>
+        <div class="flex-1 z-10 text-center md:text-left">
+          <span class="inline-block px-3 py-1 bg-primary text-text-dark text-xs font-bold rounded-full mb-3">CHEF'S
+            SPECIAL</span>
+          <h2 class="text-2xl md:text-3xl font-bold text-white mb-2"> Rajma Chawal Combo</h2>
+          <p class="text-gray-300 mb-6 max-w-md">Home-style kidney beans curry served with steamed basmati rice, fresh
+            curd, and mixed pickle.</p>
+          <button
+            class="inline-flex items-center justify-center h-10 px-6 bg-primary hover:bg-[#0fd60f] text-text-dark font-bold rounded-lg transition-colors text-sm"
+            onclick="addRajmaCombo()">
+            Add this to Cart
+          </button>
+          k
+        </div>
+        <div
+          class="w-full md:w-1/3 aspect-video md:aspect-square bg-cover bg-center rounded-xl shadow-md transform group-hover:scale-105 transition-transform duration-500"
+          style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAFaHC1QX9cUarmrFDHm_0jfU5KM6gUbJVULDpghuvLk-Z4c-j-nomjspevfl7CnI8CxmB0gV9Lzfk2kF6ieFPcpLRR73TXPBeeSUaqr81UtM94-VnD8cOMbm50JJglWSZyDfPFE8EBJl5BhYptIR9F2uywBAAQfm1-2Dl9_bZJq4YyBFDnUnPb-6qaPF0v9Q_6tTmXJZcNXEvgeQVjU1fmRJUDYs6JE18iGtmP-Yn8lgt3ro4_9YJsD8YCQ0ijIwR1snoiGUBEY6an');">
+        </div>
+      </div>
+
+      <!-- Day buttons + menu -->
+      <div>
+        <!-- Day selector -->
+        <div class="mb-4 flex gap-2 overflow-x-auto scrollbar-hide">
+          <button
+            class="day-btn px-3 py-1.5 rounded-full text-xs font-semibold border border-primary text-primary bg-primary/10"
+            data-day="0" onclick="selectDay(0)">Sunday</button>
+          <button class="day-btn px-3 py-1.5 rounded-full text-xs font-semibold border border-gray-300 text-gray-600"
+            data-day="1" onclick="selectDay(1)">Monday</button>
+          <button class="day-btn px-3 py-1.5 rounded-full text-xs font-semibold border border-gray-300 text-gray-600"
+            data-day="2" onclick="selectDay(2)">Tuesday</button>
+          <button class="day-btn px-3 py-1.5 rounded-full text-xs font-semibold border border-gray-300 text-gray-600"
+            data-day="3" onclick="selectDay(3)">Wednesday</button>
+          <button class="day-btn px-3 py-1.5 rounded-full text-xs font-semibold border border-gray-300 text-gray-600"
+            data-day="4" onclick="selectDay(4)">Thursday</button>
+          <button class="day-btn px-3 py-1.5 rounded-full text-xs font-semibold border border-gray-300 text-gray-600"
+            data-day="5" onclick="selectDay(5)">Friday</button>
+          <button class="day-btn px-3 py-1.5 rounded-full text-xs font-semibold border border-gray-300 text-gray-600"
+            data-day="6" onclick="selectDay(6)">Saturday</button>
+        </div>
+
+        <h3 class="text-xl font-bold text-text-dark dark:text-white mb-6 flex items-center gap-2">
+          Today's Menu
+          <span
+            class="text-xs font-normal text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded-full"
+            id="itemCount">
+            0 Items
+          </span>
+        </h3>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          <!-- ALWAYS ENABLED ITEMS -->
+
+          <!-- Chapati -->
+          <div
+            class="bg-white dark:bg-card-dark rounded-xl p-3 border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow flex flex-col gap-3 group"
+            data-food="chapati">
+            <div
+              class="w-full aspect-[4/3] bg-gray-200 dark:bg-gray-800 rounded-lg bg-cover bg-center overflow-hidden relative"
+              style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuACM5rf5KlEeiaO71R_PLGxSRxD_JKiXE19K4zD1T_oFwb5BRNAj7iC-qnBTCi2tsqB9V6k6QviMUNNjn5XNf7ml3-2v0hIP3sHAZcq7cDP9nIVQey43HExeZkuduMuKwrlVwhs2U8mz5KraH4IUC3_FUyG90fe2yGssxFyj8PpnqFV87hmfIKIoJz-1fuWGsQCblpwBFthnCG_L232pY3Ixw4jEDgpDqSWfVMoC0EdY0gm-VWSqe1z7Wyeay4VtNTLAeSLq4MgpRfS');">
+              <div
+                class="absolute top-2 right-2 bg-white/90 dark:bg-black/80 backdrop-blur text-xs font-bold px-2 py-1 rounded text-text-dark dark:text-white shadow-sm">
+                Veg</div>
+            </div>
+            <div class="flex flex-col flex-1 px-1">
+              <div class="flex justify-between items-start mb-1">
+                <h4 class="font-bold text-text-dark dark:text-white text-lg group-hover:text-primary transition-colors">
+                  Chapati</h4>
+                <span class="font-bold text-primary" data-price>8</span>
+              </div>
+              <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2 mb-4">Wheat chapatis served hot.</p>
+              <div class="menu-btn-wrap">
+                <button onclick="addToCart('Chapati', 8)"
+                  class="mt-auto w-full h-9 flex items-center justify-center gap-2 border border-primary text-primary hover:bg-primary hover:text-text-dark font-bold text-sm rounded-lg transition-all active:scale-95">
+                  <span class="material-symbols-outlined text-[18px]">add</span>
+                  Add
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bowl Rice -->
+          <div
+            class="bg-white dark:bg-card-dark rounded-xl p-3 border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow flex flex-col gap-3 group"
+            data-food="bowl-rice">
+            <div
+              class="w-full aspect-[4/3] bg-gray-200 dark:bg-gray-800 rounded-lg bg-cover bg-center overflow-hidden relative"
+              style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBWEbDAhxmPXRinF7VQ_zfnJMN45m-ZAH4m9jrcV0jAVbEfTtMxLGDHgb-oYevI2xT02L6i1W0PaR6D4sAMYJ9n8el0cecIxHf-xVvfkPZz_BJthuu_cVmVJ_271ZtFrgWqCL_XPyIXKuZ4c6G3jn_PEEKglA1st1DPZsQYWk0S5haabDQ7FuZJGySn0GO2LXFS_yqRsrjR2KNXF_aQKUhV-11thRcZYkogHBT3AlfxuRQrThlKRXWHW6wMjDSvKWoj4E4cXqU4pnvB');">
+              <div
+                class="absolute top-2 right-2 bg-white/90 dark:bg-black/80 backdrop-blur text-xs font-bold px-2 py-1 rounded text-text-dark dark:text-white shadow-sm">
+                Veg</div>
+            </div>
+            <div class="flex flex-col flex-1 px-1">
+              <div class="flex justify-between items-start mb-1">
+                <h4 class="font-bold text-text-dark dark:text-white text-lg group-hover:text-primary transition-colors">
+                  Bowl Rice</h4>
+                <span class="font-bold text-primary" data-price>20</span>
+              </div>
+              <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2 mb-4">Steamed basmati rice, full portion.
+              </p>
+              <div class="menu-btn-wrap">
+                <button onclick="addToCart('Bowl Rice', 20)"
+                  class="mt-auto w-full h-9 flex items-center justify-center gap-2 border border-primary text-primary hover:bg-primary hover:text-text-dark font-bold text-sm rounded-lg transition-all active:scale-95">
+                  <span class="material-symbols-outlined text-[18px]">add</span>
+                  Add
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Salad -->
+          <div
+            class="bg-white dark:bg-card-dark rounded-xl p-3 border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow flex flex-col gap-3 group"
+            data-food="salad">
+            <div
+              class="w-full aspect-[4/3] bg-gray-200 dark:bg-gray-800 rounded-lg bg-cover bg-center overflow-hidden relative"
+              style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBpZu1PbrfgdZ2K_ftROCu2ePzL7Km5s-2en4NpD4VyOUF024ocfOXOBuZx2m8GksHsqz7q16UPt6RbHViXuqHEyQOnS0o6zjbuexQxSykadrOYJdbAaVaFU9H3fdlcawU1WkD-GoR3_smSINdd0Kg-Ap4qzz-3GTCY2AX573uVLj5yvopspXChXfX6_gj5wDUqrtafRhuBobOn-7sCKOtEZ4CiRqAnt4n_84ua2doGHmyJdKmp_FG7PyEGA4Z8G5rQqKXzW6OBh6fR');">
+              <div
+                class="absolute top-2 right-2 bg-white/90 dark:bg-black/80 backdrop-blur text-xs font-bold px-2 py-1 rounded text-text-dark dark:text-white shadow-sm">
+                Veg</div>
+            </div>
+            <div class="flex flex-col flex-1 px-1">
+              <div class="flex justify-between items-start mb-1">
+                <h4 class="font-bold text-text-dark dark:text-white text-lg group-hover:text-primary transition-colors">
+                  Salad</h4>
+                <span class="font-bold text-primary" data-price>10</span>
+              </div>
+              <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2 mb-4">Fresh seasonal salad.</p>
+              <div class="menu-btn-wrap">
+                <button onclick="addToCart('Salad', 10)"
+                  class="mt-auto w-full h-9 flex items-center justify-center gap-2 border border-primary text-primary hover:bg-primary hover:text-text-dark font-bold text-sm rounded-lg transition-all active:scale-95">
+                  <span class="material-symbols-outlined text-[18px]">add</span>
+                  Add
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pickle -->
+          <div
+            class="bg-white dark:bg-card-dark rounded-xl p-3 border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow flex flex-col gap-3 group"
+            data-food="pickle">
+            <div
+              class="w-full aspect-[4/3] bg-gray-200 dark:bg-gray-800 rounded-lg bg-cover bg-center overflow-hidden relative"
+              style="background-image: url('https://www.sharmispassions.com/wp-content/uploads/2021/11/instant-mango-pickle1.jpg');">
+              <div
+                class="absolute top-2 right-2 bg-white/90 dark:bg-black/80 backdrop-blur text-xs font-bold px-2 py-1 rounded text-text-dark dark:text-white shadow-sm">
+                Veg</div>
+            </div>
+            <div class="flex flex-col flex-1 px-1">
+              <div class="flex justify-between items-start mb-1">
+                <h4 class="font-bold text-text-dark dark:text-white text-lg group-hover:text-primary transition-colors">
+                  Pickle</h4>
+                <span class="font-bold text-primary" data-price>0</span>
+              </div>
+              <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2 mb-4">Fresh Pickle.</p>
+              <div class="menu-btn-wrap">
+                <button onclick="addToCart('Pickle', 0)"
+                  class="mt-auto w-full h-9 flex items-center justify-center gap-2 border border-primary text-primary hover:bg-primary hover:text-text-dark font-bold text-sm rounded-lg transition-all active:scale-95">
+                  <span class="material-symbols-outlined text-[18px]">add</span>
+                  Add
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Daal -->
+          <div
+            class="bg-white dark:bg-card-dark rounded-xl p-3 border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow flex flex-col gap-3 group"
+            data-food="daal">
+            <div
+              class="w-full aspect-[4/3] bg-gray-200 dark:bg-gray-800 rounded-lg bg-cover bg-center overflow-hidden relative"
+              style="background-image: url('https://shwetainthekitchen.com/wp-content/uploads/2023/01/chana-dal.jpg');">
+              <div
+                class="absolute top-2 right-2 bg-white/90 dark:bg-black/80 backdrop-blur text-xs font-bold px-2 py-1 rounded text-text-dark dark:text-white shadow-sm">
+                Veg</div>
+            </div>
+            <div class="flex flex-col flex-1 px-1">
+              <div class="flex justify-between items-start mb-1">
+                <h4 class="font-bold text-text-dark dark:text-white text-lg group-hover:text-primary transition-colors">
+                  Daal</h4>
+                <span class="font-bold text-primary" data-price>15</span>
+              </div>
+              <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2 mb-4">Daal</p>
+              <div class="menu-btn-wrap">
+                <button onclick="addToCart('Daal', 15)"
+                  class="mt-auto w-full h-9 flex items-center justify-center gap-2 border border-primary text-primary hover:bg-primary hover:text-text-dark font-bold text-sm rounded-lg transition-all active:scale-95">
+                  <span class="material-symbols-outlined text-[18px]">add</span>
+                  Add
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Papad -->
+          <div
+            class="bg-white dark:bg-card-dark rounded-xl p-3 border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow flex flex-col gap-3 group"
+            data-food="papad">
+            <div
+              class="w-full aspect-[4/3] bg-gray-200 dark:bg-gray-800 rounded-lg bg-cover bg-center overflow-hidden relative"
+              style="background-image: url('https://aplentyfood.com/wp-content/uploads/2023/06/Ready-to-Fry-Papad-jpg.webp');">
+              <div
+                class="absolute top-2 right-2 bg-white/90 dark:bg-black/80 backdrop-blur text-xs font-bold px-2 py-1 rounded text-text-dark dark:text-white shadow-sm">
+                Veg</div>
+            </div>
+            <div class="flex flex-col flex-1 px-1">
+              <div class="flex justify-between items-start mb-1">
+                <h4 class="font-bold text-text-dark dark:text-white text-lg group-hover:text-primary transition-colors">
+                  Papad</h4>
+                <span class="font-bold text-primary" data-price>5</span>
+              </div>
+              <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2 mb-4">Papad</p>
+              <div class="menu-btn-wrap">
+                <button onclick="addToCart('Papad', 5)"
+                  class="mt-auto w-full h-9 flex items-center justify-center gap-2 border border-primary text-primary hover:bg-primary hover:text-text-dark font-bold text-sm rounded-lg transition-all active:scale-95">
+                  <span class="material-symbols-outlined text-[18px]">add</span>
+                  Add
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- DAY-SPECIFIC ITEMS -->
+
+          <!-- Sunday: Paneer Kadhai, Bhaji Aloo -->
+          <div
+            class="bg-white dark:bg-card-dark rounded-xl p-3 border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow flex flex-col gap-3 group"
+            data-food="paneer-kadhai">
+            <div
+              class="w-full aspect-[4/3] bg-gray-200 dark:bg-gray-800 rounded-lg bg-cover bg-center overflow-hidden relative"
+              style="background-image: url('https://www.cookwithmanali.com/wp-content/uploads/2017/03/Best-Kadai-Paneer.jpg');">
+              <div
+                class="absolute top-2 right-2 bg-white/90 dark:bg-black/80 backdrop-blur text-xs font-bold px-2 py-1 rounded text-text-dark dark:text-white shadow-sm">
+                Veg</div>
+            </div>
+            <div class="flex flex-col flex-1 px-1">
+              <div class="flex justify-between items-start mb-1">
+                <h4 class="font-bold text-text-dark dark:text-white text-lg group-hover:text-primary transition-colors">
+                  Paneer Kadhai</h4>
+                <span class="font-bold text-primary" data-price>30</span>
+              </div>
+              <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2 mb-4">Paneer Kadhai.</p>
+              <div class="menu-btn-wrap">
+                <button onclick="addToCart('Paneer Kadhai', 30)"
+                  class="mt-auto w-full h-9 flex items-center justify-center gap-2 border border-primary text-primary hover:bg-primary hover:text-text-dark font-bold text-sm rounded-lg transition-all active:scale-95">
+                  <span class="material-symbols-outlined text-[18px]">add</span>
+                  Add
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="bg-white dark:bg-card-dark rounded-xl p-3 border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow flex flex-col gap-3 group"
+            data-food="bhaji-aloo">
+            <div
+              class="w-full aspect-[4/3] bg-gray-200 dark:bg-gray-800 rounded-lg bg-cover bg-center overflow-hidden relative"
+              style="background-image: url('https://www.playfulcooking.com/wp-content/uploads/2024/03/bengali-aloo-bhaja-05.jpg');">
+              <div
+                class="absolute top-2 right-2 bg-white/90 dark:bg-black/80 backdrop-blur text-xs font-bold px-2 py-1 rounded text-text-dark dark:text-white shadow-sm">
+                Veg</div>
+            </div>
+            <div class="flex flex-col flex-1 px-1">
+              <div class="flex justify-between items-start mb-1">
+                <h4 class="font-bold text-text-dark dark:text-white text-lg group-hover:text-primary transition-colors">
+                  Bhaji Aloo</h4>
+                <span class="font-bold text-primary" data-price>18</span>
+              </div>
+              <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2 mb-4">Bhaji Aloo.</p>
+              <div class="menu-btn-wrap">
+                <button onclick="addToCart('Bhaji Aloo', 18)"
+                  class="mt-auto w-full h-9 flex items-center justify-center gap-2 border border-primary text-primary hover:bg-primary hover:text-text-dark font-bold text-sm rounded-lg transition-all active:scale-95">
+                  <span class="material-symbols-outlined text-[18px]">add</span>
+                  Add
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Monday: Pattagobhi Matar, Aloo Chole -->
+          <div
+            class="bg-white dark:bg-card-dark rounded-xl p-3 border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow flex flex-col gap-3 group"
+            data-food="pattagobhi-matar">
+            <div
+              class="w-full aspect-[4/3] bg-gray-200 dark:bg-gray-800 rounded-lg bg-cover bg-center overflow-hidden relative"
+              style="background-image: url('https://www.archanaskitchen.com/_next/image?url=https%3A%2F%2Fimages.archanaskitchen.com%2Fimages%2Frecipes%2Findian%2Fmain-course%2Fnorth-indian-vegetarian-recipes%2Fsabzi-recipes%2FPatta_Gobi_Matar_Nu_Shaak_Recipe_Cabbage_Peas_Sabzi_Recipe_68db9478ad.jpg&w=1920&q=90');">
+              <div
+                class="absolute top-2 right-2 bg-white/90 dark:bg-black/80 backdrop-blur text-xs font-bold px-2 py-1 rounded text-text-dark dark:text-white shadow-sm">
+                Veg</div>
+            </div>
+            <div class="flex flex-col flex-1 px-1">
+              <div class="flex justify-between items-start mb-1">
+                <h4 class="font-bold text-text-dark dark:text-white text-lg group-hover:text-primary transition-colors">
+                  Pattagobhi Matar</h4>
+                <span class="font-bold text-primary" data-price>18</span>
+              </div>
+              <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2 mb-4">Pattagobhi Matar.</p>
+              <div class="menu-btn-wrap">
+                <button onclick="addToCart('Pattagobhi Matar', 18)"
+                  class="mt-auto w-full h-9 flex items-center justify-center gap-2 border border-primary text-primary hover:bg-primary hover:text-text-dark font-bold text-sm rounded-lg transition-all active:scale-95">
+                  <span class="material-symbols-outlined text-[18px]">add</span>
+                  Add
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="bg-white dark:bg-card-dark rounded-xl p-3 border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow flex flex-col gap-3 group"
+            data-food="aloo-chole">
+            <div
+              class="w-full aspect-[4/3] bg-gray-200 dark:bg-gray-800 rounded-lg bg-cover bg-center overflow-hidden relative"
+              style="background-image: url('https://sitaramdiwanchand.com/blog/wp-content/uploads/2024/05/Image-1.webp');">
+              <div
+                class="absolute top-2 right-2 bg-white/90 dark:bg-black/80 backdrop-blur text-xs font-bold px-2 py-1 rounded text-text-dark dark:text-white shadow-sm">
+                Veg</div>
+            </div>
+            <div class="flex flex-col flex-1 px-1">
+              <div class="flex justify-between items-start mb-1">
+                <h4 class="font-bold text-text-dark dark:text-white text-lg group-hover:text-primary transition-colors">
+                  Aloo Chole</h4>
+                <span class="font-bold text-primary" data-price>18</span>
+              </div>
+              <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2 mb-4">Aloo Chole.</p>
+              <div class="menu-btn-wrap">
+                <button onclick="addToCart('Aloo Chole', 18)"
+                  class="mt-auto w-full h-9 flex items-center justify-center gap-2 border border-primary text-primary hover:bg-primary hover:text-text-dark font-bold text-sm rounded-lg transition-all active:scale-95">
+                  <span class="material-symbols-outlined text-[18px]">add</span>
+                  Add
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tuesday: Veg Kadhi, Pyazi Besan -->
+          <div
+            class="bg-white dark:bg-card-dark rounded-xl p-3 border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow flex flex-col gap-3 group"
+            data-food="com%2Fimages%2Frecipes%2Findian%2Fmain-course%2Fnorth-indian-vegetarian-recipes%2Fsabzi-recipes%2FPatta_Gobi_Matar_Nu_Shaak_Recipe_Cabbage_Peas_Sabzi_Recipe_68db9478ad">
+            <div
+              class="w-full aspect-[4/3] bg-gray-200 dark:bg-gray-800 rounded-lg bg-cover bg-center overflow-hidden relative"
+              style="background-image: url('https://shwetainthekitchen.com/wp-content/uploads/2023/03/mixed-vegetable-curry.jpg');">
+              <div
+                class="absolute top-2 right-2 bg-white/90 dark:bg-black/80 backdrop-blur text-xs font-bold px-2 py-1 rounded text-text-dark dark:text-white shadow-sm">
+                Veg</div>
+            </div>
+            <div class="flex flex-col flex-1 px-1">
+              <div class="flex justify-between items-start mb-1">
+                <h4 class="font-bold text-text-dark dark:text-white text-lg group-hover:text-primary transition-colors">
+                  Veg Kadhi</h4>
+                <span class="font-bold text-primary" data-price>18</span>
+              </div>
+              <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2 mb-4">Veg Kadhi.</p>
+              <div class="menu-btn-wrap">
+                <button onclick="addToCart('Veg Kadhi', 18)"
+                  class="mt-auto w-full h-9 flex items-center justify-center gap-2 border border-primary text-primary hover:bg-primary hover:text-text-dark font-bold text-sm rounded-lg transition-all active:scale-95">
+                  <span class="material-symbols-outlined text-[18px]">add</span>
+                  Add
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="bg-white dark:bg-card-dark rounded-xl p-3 border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow flex flex-col gap-3 group"
+            data-food="pyazi-besan">
+            <div
+              class="w-full aspect-[4/3] bg-gray-200 dark:bg-gray-800 rounded-lg bg-cover bg-center overflow-hidden relative"
+              style="background-image: url('https://cdn.mygingergarlickitchen.com/images_webp/800px/800px-01-food-styling-of-Duble-Pyaaz-Ka-Besan-by-my-ginger-garlic-kitchen.webp');">
+              <div
+                class="absolute top-2 right-2 bg-white/90 dark:bg-black/80 backdrop-blur text-xs font-bold px-2 py-1 rounded text-text-dark dark:text-white shadow-sm">
+                Veg</div>
+            </div>
+            <div class="flex flex-col flex-1 px-1">
+              <div class="flex justify-between items-start mb-1">
+                <h4 class="font-bold text-text-dark dark:text-white text-lg group-hover:text-primary transition-colors">
+                  Pyazi Besan</h4>
+                <span class="font-bold text-primary" data-price>18</span>
+              </div>
+              <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2 mb-4">Pyazi Besan.</p>
+              <div class="menu-btn-wrap">
+                <button onclick="addToCart('Pyazi Besan', 18)"
+                  class="mt-auto w-full h-9 flex items-center justify-center gap-2 border border-primary text-primary hover:bg-primary hover:text-text-dark font-bold text-sm rounded-lg transition-all active:scale-95">
+                  <span class="material-symbols-outlined text-[18px]">add</span>
+                  Add
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Wednesday: Panch Mela, Aloo Green Peas -->
+          <div
+            class="bg-white dark:bg-card-dark rounded-xl p-3 border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow flex flex-col gap-3 group"
+            data-food="panch-mela">
+            <div
+              class="w-full aspect-[4/3] bg-gray-200 dark:bg-gray-800 rounded-lg bg-cover bg-center overflow-hidden relative"
+              style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIM2YY3TmzkMaMa-juGRfWeyIrI7BGZiY-wQ&s');">
+              <div
+                class="absolute top-2 right-2 bg-white/90 dark:bg-black/80 backdrop-blur text-xs font-bold px-2 py-1 rounded text-text-dark dark:text-white shadow-sm">
+                Veg</div>
+            </div>
+            <div class="flex flex-col flex-1 px-1">
+              <div class="flex justify-between items-start mb-1">
+                <h4 class="font-bold text-text-dark dark:text-white text-lg group-hover:text-primary transition-colors">
+                  Panch Mela</h4>
+                <span class="font-bold text-primary" data-price>18</span>
+              </div>
+              <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2 mb-4">Panch Mela.</p>
+              <div class="menu-btn-wrap">
+                <button onclick="addToCart('Panch Mela', 18)"
+                  class="mt-auto w-full h-9 flex items-center justify-center gap-2 border border-primary text-primary hover:bg-primary hover:text-text-dark font-bold text-sm rounded-lg transition-all active:scale-95">
+                  <span class="material-symbols-outlined text-[18px]">add</span>
+                  Add
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="bg-white dark:bg-card-dark rounded-xl p-3 border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow flex flex-col gap-3 group"
+            data-food="aloo-green-peas">
+            <div
+              class="w-full aspect-[4/3] bg-gray-200 dark:bg-gray-800 rounded-lg bg-cover bg-center overflow-hidden relative"
+              style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMJYmTz4z_Ov6MDJJ_X4Rn_t8cmIluV0jqgw&s');">
+              <div
+                class="absolute top-2 right-2 bg-white/90 dark:bg-black/80 backdrop-blur text-xs font-bold px-2 py-1 rounded text-text-dark dark:text-white shadow-sm">
+                Veg</div>
+            </div>
+            <div class="flex flex-col flex-1 px-1">
+              <div class="flex justify-between items-start mb-1">
+                <h4 class="font-bold text-text-dark dark:text-white text-lg group-hover:text-primary transition-colors">
+                  Aloo Green Peas</h4>
+                <span class="font-bold text-primary" data-price>18</span>
+              </div>
+              <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2 mb-4">Aloo Green Peas.</p>
+              <div class="menu-btn-wrap">
+                <button onclick="addToCart('Aloo Green Peas', 18)"
+                  class="mt-auto w-full h-9 flex items-center justify-center gap-2 border border-primary text-primary hover:bg-primary hover:text-text-dark font-bold text-sm rounded-lg transition-all active:scale-95">
+                  <span class="material-symbols-outlined text-[18px]">add</span>
+                  Add
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Thursday: Beans Aloo, Corn Capsicum -->
+          <div
+            class="bg-white dark:bg-card-dark rounded-xl p-3 border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow flex flex-col gap-3 group"
+            data-food="beans-aloo">
+            <div
+              class="w-full aspect-[4/3] bg-gray-200 dark:bg-gray-800 rounded-lg bg-cover bg-center overflow-hidden relative"
+              style="background-image: url('https://sinfullyspicy.com/wp-content/uploads/2024/05/2-2.jpg');">
+              <div
+                class="absolute top-2 right-2 bg-white/90 dark:bg-black/80 backdrop-blur text-xs font-bold px-2 py-1 rounded text-text-dark dark:text-white shadow-sm">
+                Veg</div>
+            </div>
+            <div class="flex flex-col flex-1 px-1">
+              <div class="flex justify-between items-start mb-1">
+                <h4 class="font-bold text-text-dark dark:text-white text-lg group-hover:text-primary transition-colors">
+                  Beans Aloo</h4>
+                <span class="font-bold text-primary" data-price>18</span>
+              </div>
+              <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2 mb-4">Beans Aloo.</p>
+              <div class="menu-btn-wrap">
+                <button onclick="addToCart('Beans Aloo', 18)"
+                  class="mt-auto w-full h-9 flex items-center justify-center gap-2 border border-primary text-primary hover:bg-primary hover:text-text-dark font-bold text-sm rounded-lg transition-all active:scale-95">
+                  <span class="material-symbols-outlined text-[18px]">add</span>
+                  Add
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="bg-white dark:bg-card-dark rounded-xl p-3 border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow flex flex-col gap-3 group"
+            data-food="corn-capsicum">
+            <div
+              class="w-full aspect-[4/3] bg-gray-200 dark:bg-gray-800 rounded-lg bg-cover bg-center overflow-hidden relative"
+              style="background-image: url('https://hebbarskitchen.com/wp-content/uploads/2019/11/corn-capsicum-masala-recipe-corn-capsicum-sabzi-corn-capsicum-gravy-1-1068x1602.jpeg');">
+              <div
+                class="absolute top-2 right-2 bg-white/90 dark:bg-black/80 backdrop-blur text-xs font-bold px-2 py-1 rounded text-text-dark dark:text-white shadow-sm">
+                Veg</div>
+            </div>
+            <div class="flex flex-col flex-1 px-1">
+              <div class="flex justify-between items-start mb-1">
+                <h4 class="font-bold text-text-dark dark:text-white text-lg group-hover:text-primary transition-colors">
+                  Corn Capsicum</h4>
+                <span class="font-bold text-primary" data-price>18</span>
+              </div>
+              <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2 mb-4">Corn Capsicum.</p>
+              <div class="menu-btn-wrap">
+                <button onclick="addToCart('Corn Capsicum', 18)"
+                  class="mt-auto w-full h-9 flex items-center justify-center gap-2 border border-primary text-primary hover:bg-primary hover:text-text-dark font-bold text-sm rounded-lg transition-all active:scale-95">
+                  <span class="material-symbols-outlined text-[18px]">add</span>
+                  Add
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Friday: Bhaji Aloo (already defined above, reused by logic), Rajma Masala -->
+          <div
+            class="bg-white dark:bg-card-dark rounded-xl p-3 border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow flex flex-col gap-3 group"
+            data-food="rajma-masala">
+            <div
+              class="w-full aspect-[4/3] bg-gray-200 dark:bg-gray-800 rounded-lg bg-cover bg-center overflow-hidden relative"
+              style="background-image: url('https://www.secondrecipe.com/wp-content/uploads/2017/08/rajma-chawal-1-500x500.jpg');">
+              <div
+                class="absolute top-2 right-2 bg-white/90 dark:bg-black/80 backdrop-blur text-xs font-bold px-2 py-1 rounded text-text-dark dark:text-white shadow-sm">
+                Veg</div>
+            </div>
+            <div class="flex flex-col flex-1 px-1">
+              <div class="flex justify-between items-start mb-1">
+                <h4 class="font-bold text-text-dark dark:text-white text-lg group-hover:text-primary transition-colors">
+                  Rajma Masala</h4>
+                <span class="font-bold text-primary" data-price>20</span>
+              </div>
+              <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2 mb-4">Rajma Masala.</p>
+              <div class="menu-btn-wrap">
+                <button onclick="addToCart('Rajma Masala', 20)"
+                  class="mt-auto w-full h-9 flex items-center justify-center gap-2 border border-primary text-primary hover:bg-primary hover:text-text-dark font-bold text-sm rounded-lg transition-all active:scale-95">
+                  <span class="material-symbols-outlined text-[18px]">add</span>
+                  Add
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Saturday: Mix Veg, Jarga Masala -->
+          <div
+            class="bg-white dark:bg-card-dark rounded-xl p-3 border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow flex flex-col gap-3 group"
+            data-food="mix-veg">
+            <div
+              class="w-full aspect-[4/3] bg-gray-200 dark:bg-gray-800 rounded-lg bg-cover bg-center overflow-hidden relative"
+              style="background-image: url('https://shwetainthekitchen.com/wp-content/uploads/2023/03/mixed-vegetable-curry.jpg');">
+              <div
+                class="absolute top-2 right-2 bg-white/90 dark:bg-black/80 backdrop-blur text-xs font-bold px-2 py-1 rounded text-text-dark dark:text-white shadow-sm">
+                Veg</div>
+            </div>
+            <div class="flex flex-col flex-1 px-1">
+              <div class="flex justify-between items-start mb-1">
+                <h4 class="font-bold text-text-dark dark:text-white text-lg group-hover:text-primary transition-colors">
+                  Mix Veg</h4>
+                <span class="font-bold text-primary" data-price>18</span>
+              </div>
+              <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2 mb-4">Mix Veg.</p>
+              <div class="menu-btn-wrap">
+                <button onclick="addToCart('Mix Veg', 18)"
+                  class="mt-auto w-full h-9 flex items-center justify-center gap-2 border border-primary text-primary hover:bg-primary hover:text-text-dark font-bold text-sm rounded-lg transition-all active:scale-95">
+                  <span class="material-symbols-outlined text-[18px]">add</span>
+                  Add
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="bg-white dark:bg-card-dark rounded-xl p-3 border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow flex flex-col gap-3 group"
+            data-food="jarga-masala">
+            <div
+              class="w-full aspect-[4/3] bg-gray-200 dark:bg-gray-800 rounded-lg bg-cover bg-center overflow-hidden relative"
+              style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5KL3wo_LNBh2l5GEujxppl2aiWcDyb21kSQ&s');">
+              <div
+                class="absolute top-2 right-2 bg-white/90 dark:bg-black/80 backdrop-blur text-xs font-bold px-2 py-1 rounded text-text-dark dark:text-white shadow-sm">
+                Veg</div>
+            </div>
+            <div class="flex flex-col flex-1 px-1">
+              <div class="flex justify-between items-start mb-1">
+                <h4 class="font-bold text-text-dark dark:text-white text-lg group-hover:text-primary transition-colors">
+                  Jarga Masala</h4>
+                <span class="font-bold text-primary" data-price>18</span>
+              </div>
+              <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2 mb-4">Jarga Masala.</p>
+              <div class="menu-btn-wrap">
+                <button onclick="addToCart('Jarga Masala', 18)"
+                  class="mt-auto w-full h-9 flex items-center justify-center gap-2 border border-primary text-primary hover:bg-primary hover:text-text-dark font-bold text-sm rounded-lg transition-all active:scale-95">
+                  <span class="material-symbols-outlined text-[18px]">add</span>
+                  Add
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: cart -->
+    <div class="w-full lg:w-[360px] flex-shrink-0">
+      <div
+        class="sticky top-24 bg-white dark:bg-card-dark rounded-2xl shadow-xl border border-gray-100 dark:border-gray-800 flex flex-col overflow-hidden h-[calc(100vh-8rem)]">
+
+        <div class="p-5 border-b border-gray-100 dark:border-gray-700 bg-[#fbfdfb] dark:bg-[#142614]">
+          <div class="flex items-center justify-between mb-1">
+            <h3 class="text-lg font-extrabold text-text-dark dark:text-white flex items-center gap-2">
+              Your Tray
+              <div
+                class="size-6 bg-primary rounded-full flex items-center justify-center text-xs text-text-dark font-bold"
+                id="trayCount">0</div>
+            </h3>
+            <button class="text-xs font-semibold text-red-500 hover:text-red-600" onclick="clearCart()">Clear
+              all</button>
+          </div>
+          <p class="text-xs text-gray-500 dark:text-gray-400">Order ID: #MM-8829</p>
+        </div>
+
+        <div class="flex-1 overflow-y-auto p-5 flex flex-col gap-4" id="cartContainer">
+        </div>
+
+        <div class="p-5 border-t border-gray-100 dark:border-gray-700 bg-gray-50 dark:bg-[#142614]">
+          <div class="flex flex-col gap-2 mb-4">
+            <div class="flex justify-between items-center text-sm text-gray-500 dark:text-gray-400">
+              <span>Subtotal</span>
+              <span id="subtotal">0 Pts</span>
+            </div>
+            <div class="flex justify-between items-center text-sm text-gray-500 dark:text-gray-400">
+              <span>Tax</span>
+              <span>0 Pts</span>
+            </div>
+            <div class="my-1 border-t border-dashed border-gray-300 dark:border-gray-600"></div>
+            <div class="flex justify-between items-center">
+              <span class="font-bold text-text-dark dark:text-white">Total Amount</span>
+              <span class="text-xl font-extrabold text-primary" id="totalAmount">0 Pts</span>
+            </div>
+          </div>
+          <div class="flex flex-col gap-3">
+            <div
+              class="flex items-center gap-2 p-2 rounded bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-900/50">
+              <span class="material-symbols-outlined text-yellow-600 text-sm">info</span>
+              <p class="text-[11px] text-yellow-800 dark:text-yellow-200 leading-tight">
+                Balance after order: <span class="font-bold" id="balance">1200 Pts</span>
+              </p>
+            </div>
+            <button
+              class="w-full py-3 bg-primary hover:bg-[#0fd60f] text-text-dark font-extrabold rounded-xl transition-all shadow-md active:translate-y-0.5 flex items-center justify-center gap-2"
+              onclick="placeOrder()">
+              Place Order
+              <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Mobile cart FAB -->
+  <div class="lg:hidden fixed bottom-6 right-6 z-40">
+    <button
+      class="size-16 rounded-full bg-text-dark text-white shadow-2xl flex items-center justify-center relative hover:scale-105 transition-transform">
+      <span class="material-symbols-outlined text-[28px]">shopping_cart</span>
+      <span
+        class="absolute top-0 right-0 size-6 bg-primary text-text-dark rounded-full text-xs font-bold flex items-center justify-center border-2 border-white dark:border-background-dark"
+        id="mobileCartCount">0</span>
+    </button>
+  </div>
+
+  <script>
+    let cart = [];
+    const userPoints = 1200;
+
+    const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+    const alwaysAvailable = [
+      'chapati',
+      'bowl-rice',
+      'salad',
+      'pickle',
+      'daal',
+      'papad'
+    ];
+
+    const dayExtraFood = {
+      0: ['paneer-kadhai', 'bhaji-aloo'],
+      1: ['pattagobhi-matar', 'aloo-chole'],
+      2: ['veg-kadhi', 'pyazi-besan'],
+      3: ['panch-mela', 'aloo-green-peas'],
+      4: ['beans-aloo', 'corn-capsicum'],
+      5: ['bhaji-aloo', 'rajma-masala'],
+      6: ['mix-veg', 'jarga-masala']
+    };
+
+    let currentDay = 0;
+
+    function selectDay(dayIndex) {
+      currentDay = dayIndex;
+
+      document.querySelectorAll('.day-btn').forEach(btn => {
+        const d = Number(btn.dataset.day);
+        if (d === dayIndex) {
+          btn.classList.remove('border-gray-300', 'text-gray-600', 'bg-transparent');
+          btn.classList.add('border-primary', 'text-primary', 'bg-primary/10');
+        } else {
+          btn.classList.add('border-gray-300', 'text-gray-600');
+          btn.classList.remove('border-primary', 'text-primary', 'bg-primary/10');
+        }
+      });
+
+      const dateLabel = document.getElementById('currentDate');
+      if (dateLabel) dateLabel.textContent = dayNames[dayIndex] + ', 12 Oct';
+
+      updateAvailability();
+      syncMenuButtons();
+      updateTrayCount();
+    }
+
+    function isAvailableToday(foodId) {
+      const extra = dayExtraFood[currentDay] || [];
+      return alwaysAvailable.includes(foodId) || extra.includes(foodId);
+    }
+
+    function updateAvailability() {
+      let availableCount = 0;
+
+      document.querySelectorAll('[data-food]').forEach(card => {
+        const foodId = card.dataset.food;
+        const wrap = card.querySelector('.menu-btn-wrap');
+        const title = card.querySelector('h4')?.innerText || 'Item';
+        if (!wrap) return;
+
+        if (isAvailableToday(foodId)) {
+          availableCount++;
+          card.classList.remove('opacity-60', 'pointer-events-none');
+
+          const inCart = cart.find(i => i.name === title);
+          if (!inCart) {
+            const priceText = card.querySelector('[data-price]')?.innerText || '0';
+            const price = parseInt(priceText);
+            wrap.innerHTML = `
+              <button onclick="addToCart('${title.replace(/'/g, "\\'")}', ${price})"
+                      class="mt-auto w-full h-9 flex items-center justify-center gap-2 border border-primary text-primary hover:bg-primary hover:text-text-dark font-bold text-sm rounded-lg transition-all active:scale-95">
+                <span class="material-symbols-outlined text-[18px]">add</span>
+                Add
+              </button>
+            `;
+          }
+        } else {
+          card.classList.add('opacity-60', 'pointer-events-none');
+          wrap.innerHTML = `
+            <div class="mt-auto w-full h-9 flex items-center justify-center rounded-lg bg-gray-100 dark:bg-gray-800">
+              <span class="text-xs font-semibold text-gray-500">Not available today</span>
+            </div>
+          `;
+        }
+      });
+
+      const itemCount = document.getElementById('itemCount');
+      if (itemCount) itemCount.textContent = availableCount + ' Items';
+    }
+
+    function updateAll() {
+      renderTray();
+      syncMenuButtons();
+      updateTrayCount();
+    }
+
+    function renderTray() {
+      const cartContainer = document.getElementById('cartContainer');
+      const totalDisplay = document.getElementById('totalAmount');
+      const subtotalDisplay = document.getElementById('subtotal');
+      const balanceDisplay = document.getElementById('balance');
+
+      cartContainer.innerHTML = '';
+      let total = 0;
+
+      cart.forEach((item) => {
+        total += item.price * item.quantity;
+
+        const itemHtml = `
+          <div class="flex gap-3">
+            <div class="size-16 rounded-lg bg-gray-100 flex-shrink-0 bg-cover bg-center"
+                 style="background-image: url('https://via.placeholder.com/64')"></div>
+            <div class="flex-1 flex flex-col justify-between">
+              <div class="flex justify-between items-start">
+                <h4 class="text-sm font-bold text-text-dark dark:text-white">${item.name}</h4>
+                <span class="text-sm font-bold text-text-dark dark:text-white">${item.price * item.quantity}</span>
+              </div>
+              <div class="flex items-center justify-between mt-2">
+                <div class="flex items-center gap-3 bg-gray-50 dark:bg-gray-800 rounded-md px-1 h-7 border border-gray-200 dark:border-gray-700">
+                  <button onclick="changeQty('${item.id}', -1)" class="text-gray-400 hover:text-red-500 transition-colors flex items-center">
+                    <span class="material-symbols-outlined text-[14px]">remove</span>
+                  </button>
+                  <span class="text-xs font-bold">${item.quantity}</span>
+                  <button onclick="changeQty('${item.id}', 1)" class="text-gray-400 hover:text-primary transition-colors flex items-center">
+                    <span class="material-symbols-outlined text-[14px]">add</span>
+                  </button>
+                </div>
+                <span class="text-[10px] text-gray-400">${item.price} pts</span>
+              </div>
+            </div>
+          </div>`;
+        cartContainer.insertAdjacentHTML('beforeend', itemHtml);
+      });
+
+      totalDisplay.innerText = `${total} Pts`;
+      subtotalDisplay.innerText = `${total} Pts`;
+      balanceDisplay.innerText = `${userPoints - total} Pts`;
+
+      if (cart.length === 0) {
+        cartContainer.innerHTML = '<p class="text-center text-gray-400 mt-10 text-sm">Tray is empty</p>';
+      }
+    }
+
+    function syncMenuButtons() {
+      document.querySelectorAll('[data-food]').forEach(card => {
+        const foodId = card.dataset.food;
+        const wrap = card.querySelector('.menu-btn-wrap');
+        if (!wrap) return;
+
+        if (!isAvailableToday(foodId)) return;
+
+        const title = card.querySelector('h4').innerText.trim();
+        const priceText = card.querySelector('[data-price]')?.innerText || '0';
+        const price = parseInt(priceText);
+        const cartItem = cart.find(i => i.name === title);
+
+        if (cartItem) {
+          wrap.innerHTML = `
+            <div class="mt-auto w-full h-9 flex items-center justify-between bg-[#e7f3e7] dark:bg-[#1a331a] rounded-lg px-1">
+              <button onclick="changeQty('${cartItem.id}', -1)" class="size-7 flex items-center justify-center text-text-dark dark:text-white hover:bg-white dark:hover:bg-card-dark hover:text-red-500 rounded transition-all">
+                <span class="material-symbols-outlined text-[16px]">remove</span>
+              </button>
+              <span class="font-bold text-sm text-text-dark dark:text-white">${cartItem.quantity}</span>
+              <button onclick="changeQty('${cartItem.id}', 1)" class="size-7 flex items-center justify-center text-text-dark dark:text-white hover:bg-white dark:hover:bg-card-dark hover:text-primary rounded transition-all">
+                <span class="material-symbols-outlined text-[16px]">add</span>
+              </button>
+            </div>`;
+        } else {
+          wrap.innerHTML = `
+            <button onclick="addToCart('${title.replace(/'/g, "\\'")}', ${price})"
+                    class="mt-auto w-full h-9 flex items-center justify-center gap-2 border border-primary text-primary hover:bg-primary hover:text-text-dark font-bold text-sm rounded-lg transition-all active:scale-95">
+              <span class="material-symbols-outlined text-[18px]">add</span>
+              Add
+            </button>`;
+        }
+      });
+    }
+
+    function updateTrayCount() {
+      const itemCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+      const trayCount = document.getElementById('trayCount');
+      const mobileCount = document.getElementById('mobileCartCount');
+      trayCount.textContent = itemCount;
+      mobileCount.textContent = itemCount;
+    }
+
+    window.addToCart = function (name, price) {
+      const existing = cart.find(i => i.name === name);
+      if (existing) {
+        existing.quantity += 1;
+      } else {
+        cart.push({ id: name, name, price, quantity: 1 });
+      }
+      updateAll();
+    };
+
+    window.changeQty = function (id, delta) {
+      const item = cart.find(i => i.id === id);
+      if (item) {
+        item.quantity += delta;
+        if (item.quantity <= 0) {
+          cart = cart.filter(i => i.id !== id);
+        }
+      }
+      updateAll();
+    };
+
+    window.clearCart = function () {
+      cart = [];
+      updateAll();
+    };
+
+    window.placeOrder = function () {
+      if (cart.length === 0) {
+        alert('Your tray is empty!');
+        return;
+      }
+      alert('Order placed successfully!');
+      cart = [];
+      updateAll();
+    };
+
+    function addRajmaCombo() {
+      // 1 Bowl Rice
+      const bowlName = 'Bowl Rice';
+      const bowlPrice = 30; // use the same value as data-price for Bowl Rice
+      let bowlItem = cart.find(i => i.name === bowlName);
+      if (bowlItem) {
+        bowlItem.quantity += 1;
+      } else {
+        cart.push({ id: bowlName, name: bowlName, price: bowlPrice, quantity: 1 });
+      }
+
+      // 2 Rajma Masala
+      const rajmaName = 'Rajma Masala';
+      const rajmaPrice = 20; // use the same value as data-price for Rajma Masala
+      let rajmaItem = cart.find(i => i.name === rajmaName);
+      if (rajmaItem) {
+        rajmaItem.quantity += 2;
+      } else {
+        cart.push({ id: rajmaName, name: rajmaName, price: rajmaPrice, quantity: 2 });
+      }
+
+      // Re-render cart + menu buttons
+      updateAll();
+    }
+
+
+    // init
+    selectDay(0);
+    updateAll();
+  </script>
+</body>
+
+</html>
