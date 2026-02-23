@@ -44,5 +44,6 @@
 ## 📦 Installation
 
 ```bash
-git clone https://github.com/<your-username>/messmate.git
+git clone https://github.com/kunwarshivamjsr/MESSMATE
 cd messmate
+
